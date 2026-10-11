@@ -1,0 +1,1375 @@
+
+pcall(tonumber, [[
+
+FFFFFFFFFFFFFFFFFFFFFF                        444444444
+F::::::::::::::::::::F                       4::::::::4
+F::::::::::::::::::::F                      4:::::::::4
+FF::::::FFFFFFFFF::::F                     4::::44::::4
+  F:::::F       FFFFFF eeeeeeeeeeee       4::::4 4::::4  rrrrr   rrrrrrrrr
+  F:::::F            ee::::::::::::ee    4::::4  4::::4  r::::rrr:::::::::r
+  F::::::FFFFFFFFFF e::::::eeeee:::::ee 4::::4   4::::4  r:::::::::::::::::r
+  F:::::::::::::::Fe::::::e     e:::::e4::::444444::::444rr::::::rrrrr::::::r
+  F:::::::::::::::Fe:::::::eeeee::::::e4::::::::::::::::4 r:::::r     r:::::r
+  F::::::FFFFFFFFFFe:::::::::::::::::e 4444444444:::::444 r:::::r     rrrrrrr
+  F:::::F          e::::::eeeeeeeeeee            4::::4   r:::::r
+  F:::::F          e:::::::e                     4::::4   r:::::r
+FF:::::::FF        e::::::::e                    4::::4   r:::::r
+F::::::::FF         e::::::::eeeeeeee          44::::::44 r:::::r
+F::::::::FF          ee:::::::::::::e          4::::::::4 r:::::r
+FFFFFFFFFFF            eeeeeeeeeeeeee          4444444444 rrrrrrr
+
+]])
+
+local function func1()
+
+	task.wait()
+end
+
+local tbl1 = { "Fe4rOnTop" }
+
+local function func2()
+	for i = 1, 100000 do
+		for _, item2 in ipairs(tbl1) do
+			warn(item2)
+		end
+	end
+
+	func1()
+end
+
+if not pcall(function()
+	local test, value1, value2 = utf8.graphemes("test")
+	local packed1 = table.pack(__1())
+	if packed1[1] then
+		return packed1[2]
+	end
+end) then
+	func2()
+end
+
+if pcall(function()
+	Instance.new("Part"):FakeMethod("b")
+end) then
+	func1()
+end
+
+if #game:GetChildren() <= 4 then
+	func1()
+end
+
+local ok, result = pcall(function()
+	return game:GetService("HttpService"):JSONDecode("[42, \"test\", false, 99, true, [11, null, \"abc\"], null, [\"z\"]]")
+end)
+
+if not ok then
+	func1()
+end
+
+if result[6][2] ~= nil then
+	func1()
+end
+
+if not pcall(function()
+	return game.HttpService
+end) then
+	func1()
+end
+
+local ok2, result2 = pcall(function()
+	game()
+end)
+
+if not result2:find("attempt to call a Instance value") then
+	func1()
+end
+
+if type(game) ~= "userdata" then
+	func1()
+end
+
+if type(workspace) ~= "userdata" then
+	func1()
+end
+
+if getrawmetatable then
+	if not pcall(function()
+		local value3 = getrawmetatable(game)
+
+		if type(value3) ~= "table" then
+			error()
+		end
+	end) then
+		func1()
+	end
+end
+
+if pcall(function()
+	task.spawn()
+end) then
+	func1()
+end
+
+local flag1 = false
+
+local obj = setmetatable({}, { __tostring = function()
+	flag1 = true
+	return "{ }"
+end })
+
+print(obj)
+
+if not flag1 then
+	func1()
+end
+
+local n = 0
+
+local connection = game:GetService("RunService").Heartbeat:Connect(function()
+	n += 1
+end)
+
+repeat
+	task.wait()
+until n >= 2
+
+connection:Disconnect()
+local flag2 = ("[%*]"):format(math.random())
+local flag3 = false
+
+local connection2 = game:GetService("LogService").MessageOut:Connect(function(flag4, flag5)
+	if flag4 == flag2 and flag5 == Enum.MessageType.MessageOutput then
+		flag3 = true
+	end
+end)
+
+print(flag2)
+
+repeat
+	task.wait()
+until flag3
+
+connection2:Disconnect()
+local env = getfenv and getfenv(0) or getfenv()
+
+local function func3()
+	local tbl2 = { MAX_LATENCY = 0.25, MAX_STRIKES = 3 }
+	local func4 = pcall
+	local clock = osclock or os.clock
+	local func5 = tostring
+	local func6 = error
+	local n2 = 0
+
+	local function func7()
+		func4(function()
+			func6("[Runtime Error] Exception code: 0x" .. func5(clock() * 1000), 0)
+		end)
+
+	end
+
+	local function verifyFlow(param1)
+		local result1 = clock()
+		local flag6, value4 = func4(param1)
+		local maxLatency = tbl2.MAX_LATENCY
+
+		if clock() - result1 > maxLatency then
+			n2 += 1
+
+			if tbl2.MAX_STRIKES <= n2 then
+				func7("D-1")
+			end
+		else
+			n2 = 0
+		end
+
+		if not flag6 then
+			func6(value4, 0)
+		end
+
+		return value4
+	end
+
+	func4(function()
+		local tbl3 = getmetatable(env) or {}
+
+		tbl3.__newindex = function()
+			func7("T-1")
+		end
+
+		tbl3.__metatable = "Locked"
+		setmetatable(env, tbl3)
+	end)
+
+	env.__VERIFY_FLOW__ = verifyFlow
+end
+
+func3()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local playerGui = game:GetService("Players").LocalPlayer.PlayerGui
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local HttpService = game:GetService("HttpService")
+local DialogueController = require(ReplicatedStorage.DialogueController)
+local GachaWindow = require(ReplicatedStorage.Controllers.UI.GachaWindow)
+local commF = ReplicatedStorage.Remotes.CommF_
+local open = GachaWindow.Open
+local TextUtil = require(ReplicatedStorage.Modules.Util.TextUtil)
+local localPlayer = game:GetService("Players").LocalPlayer
+
+local function func17()
+	local ok3, result3 = pcall(function()
+		local ItemReplicationService = require(ReplicatedStorage.ItemReplicationService)
+		local KEYS = require(ReplicatedStorage.ItemReplicationService.KEYS)
+		local ItemConfig = require(ReplicatedStorage.ItemConfig)
+		local items = ItemReplicationService:GetItems(KEYS.IS_OWNED)
+		local items2 = ItemReplicationService:GetItems(KEYS.QUANTITY)
+		local items3 = ItemReplicationService:GetItems(KEYS.PREFERRED_MUTATION)
+		local tbl5 = {}
+
+		if type(items2) == "table" then
+			for _, value5 in pairs(items2) do
+				if value5.ItemId then
+					tbl5[value5.ItemId] = value5.Value
+				end
+			end
+		end
+
+		local tbl6 = {}
+
+		if type(items3) == "table" then
+			for _, value6 in pairs(items3) do
+				if value6.ItemId and value6.Value and value6.Value ~= "" then
+					tbl6[value6.ItemId] = true
+				end
+			end
+		end
+
+		local tbl7 = {}
+
+		if type(items) == "table" then
+			for _, item in pairs(items) do
+				if item.Value == true and item.ItemId then
+					local ok3, result3 = pcall(function()
+						return ItemConfig.tryGet(item.ItemId)
+					end)
+
+					if ok3 and type(result3) == "table" and result3.Display and result3.Display.Category == "Blox Fruit" then
+						local storageKey = result3.Index and result3.Index.StorageKey
+						local name = result3.Display.Name
+						storageKey = name and name ~= "" and name or storageKey or ""
+						local idType = result3.Index and result3.Index.IdType
+						local str1
+
+						if idType == "PhysicalMoveset" then
+							str1 = tbl6[item.ItemId] and "Mutated Fruit" or "Blox Fruit"
+						else
+							str1 = nil
+
+							if idType == "Redeemable" then
+								str1 = "Premium"
+							end
+						end
+
+						if str1 then
+							table.insert(tbl7, {
+								ItemId = item.ItemId,
+								Id = item.ItemId,
+								Name = result3.Index and result3.Index.StorageKey or storageKey,
+								DisplayName = storageKey,
+								Type = str1,
+								Rarity = result3.Quality and result3.Quality.RarityValue or 0,
+								Value = result3.Quality and result3.Quality.MoneyPrice or 0,
+								Count = tbl5[item.ItemId] or 1,
+							})
+						end
+					end
+				end
+			end
+		end
+
+		return tbl7
+	end)
+
+	if not ok3 then
+		warn("[BF Spinner] getInventory failed:", result3)
+		return {}
+	end
+	return result3 or {}
+end
+
+local tbl8 = { boostLuck = false, bypassTime = false, bypassCash = false }
+
+local function func18()
+	return HttpService:GenerateGUID(false)
+end
+
+local tbl9 = { [0] = "Common", "Uncommon", "Rare", "Legendary", "Mythical" }
+
+local tbl10 = {
+	[0] = Color3.fromRGB(179, 179, 179),
+	Color3.fromRGB(92, 140, 211),
+	Color3.fromRGB(140, 82, 255),
+	Color3.fromRGB(213, 43, 228),
+	(Color3.fromRGB(255, 50, 50)),
+}
+
+local ItemId = require(ReplicatedStorage.Economy.ItemId)
+local ItemConfig = require(ReplicatedStorage.ItemConfig)
+
+local function func19(str2)
+	local str3 = str2 .. "-" .. str2
+
+	local ok3, result3 = pcall(function()
+		return ItemId.getId(str3, "PhysicalMoveset"):asNullable()
+	end)
+
+	if not ok3 or not result3 then
+		return nil
+	end
+	local itemId = type(result3) == "table" and (result3.ItemId or result3.Id) or result3
+
+	local ok4, result4 = pcall(function()
+		return ItemConfig.tryGet(itemId)
+	end)
+
+	if ok4 and type(result4) == "table" and result4.Display and result4.Display.Sprite then
+		return result4.Display.Sprite
+	end
+	return nil
+end
+
+local function func20(str4)
+	local str5 = str4 .. "-" .. str4
+
+	local ok3, result3 = pcall(function()
+		return ItemId.getId(str5, "PhysicalMoveset"):asNullable()
+	end)
+
+	if not ok3 or not result3 then
+		return nil
+	end
+	return type(result3) == "table" and (result3.ItemId or result3.Id) or result3
+end
+
+local tbl11 = {}
+
+local function func21(str6, param12)
+	local str7 = str6 .. "-" .. str6
+	local value7 = func19(str6)
+	local image, imageRectOffset, imageRectSize
+
+	if value7 then
+		image = value7.Image
+		imageRectOffset = value7.ImageRectOffset or Vector2.new(0, 0)
+		imageRectSize = value7.ImageRectSize or Vector2.new(0, 0)
+	else
+		warn("[BF Spinner] Khong tra duoc sprite cho: " .. tostring(str6))
+		imageRectSize = Vector2.new(0, 0)
+		imageRectOffset = Vector2.new(0, 0)
+		image = nil
+	end
+
+	tbl11[str7] = str6
+
+	return {
+		StorageName = str7,
+		DisplayName = str6,
+		ImageName = str7,
+		ItemId = func20(str6),
+		Image = image,
+		ImageRectOffset = imageRectOffset,
+		ImageRectSize = imageRectSize,
+		Rarity = { Name = tbl9[param12], Value = param12, Color = tbl10[param12] },
+		Attributes = {},
+		Filter = nil,
+		ItemType = "Item",
+		Awards = nil,
+		_UID = func18(),
+	}
+end
+
+local tbl12 = {}
+local Spin = func21("Spin", 0)
+local Smoke = func21("Smoke", 0)
+local Blade = func21("Blade", 0)
+local Bomb = func21("Bomb", 0)
+local Spike = func21("Spike", 0)
+local Rocket = func21("Rocket", 0)
+local Sand = func21("Sand", 1)
+local Ice = func21("Ice", 1)
+local Flame = func21("Flame", 1)
+local Dark = func21("Dark", 1)
+local Eagle = func21("Eagle", 1)
+local Light = func21("Light", 2)
+local Rubber = func21("Rubber", 2)
+local Magma = func21("Magma", 2)
+local Buddha = func21("Buddha", 3)
+local Portal = func21("Portal", 3)
+local Lightning = func21("Lightning", 3)
+local Pain = func21("Pain", 3)
+local Shadow = func21("Shadow", 4)
+local Control = func21("Control", 4)
+local Tiger = func21("Tiger", 4)
+local Gravity = func21("Gravity", 4)
+local value8 = func21("Dragon (East)", 4)
+local Gas = func21("Gas", 4)
+local Kitsune = func21("Kitsune", 4)
+local Dough = func21("Dough", 4)
+local Yeti = func21("Yeti", 4)
+local value9 = func21("Dragon (West)", 4)
+local value10 = func21("T-Rex", 4)
+local Mammoth = func21("Mammoth", 4)
+local Spirit = func21("Spirit", 4)
+local Venom = func21("Venom", 4)
+tbl12[1] = Spin
+tbl12[2] = Smoke
+tbl12[3] = Blade
+tbl12[4] = Bomb
+tbl12[5] = Spike
+tbl12[6] = Rocket
+tbl12[7] = Sand
+tbl12[8] = Ice
+tbl12[9] = Flame
+tbl12[10] = Dark
+tbl12[11] = Eagle
+tbl12[12] = Light
+tbl12[13] = Rubber
+tbl12[14] = Magma
+tbl12[15] = Buddha
+tbl12[16] = Portal
+tbl12[17] = Lightning
+tbl12[18] = Pain
+tbl12[19] = Shadow
+tbl12[20] = Control
+tbl12[21] = Tiger
+tbl12[22] = Gravity
+tbl12[23] = value8
+tbl12[24] = Gas
+tbl12[25] = Kitsune
+tbl12[26] = Dough
+tbl12[27] = Yeti
+tbl12[28] = value9
+tbl12[29] = value10
+tbl12[30] = Mammoth
+tbl12[31] = Spirit
+tbl12[32] = Venom
+
+pcall(function()
+	local SpinnerUtil = require(ReplicatedStorage.Controllers.UI.Spinner.SpinnerUtil)
+	local applyImage = SpinnerUtil.applyImage
+
+	SpinnerUtil.applyImage = function(obj, param13, param14, param15, param16)
+		local entry1 = tbl11[param13]
+
+		if entry1 then
+			local value11 = func19(entry1)
+
+			if value11 then
+				obj.Image = value11.Image
+				obj.ImageRectOffset = value11.ImageRectOffset or Vector2.new(0, 0)
+				obj.ImageRectSize = value11.ImageRectSize or Vector2.new(0, 0)
+				return value11
+			end
+		end
+
+		return applyImage(obj, param13, param14, param15, param16)
+	end
+end)
+
+local tbl13 = {}
+local tbl14 = {}
+
+for _, value12 in pairs(tbl12) do
+	if value12.Rarity.Value == 4 then
+		table.insert(tbl13, value12)
+	else
+		table.insert(tbl14, value12)
+	end
+end
+
+local tbl15 = {}
+local replicatedFruits = playerGui:FindFirstChild("__ReplicatedFruits") or Instance.new("Folder")
+replicatedFruits.Name = "__ReplicatedFruits"
+replicatedFruits.Parent = playerGui
+local tbl16 = {}
+local tbl17 = {}
+local flag9 = false
+
+local function func22(instance, param17, str8)
+	local str9, str10
+
+	if str8 == "Dragon (East)" then
+		str9 = "Dragon-Dragon"
+		str10 = "East"
+	else
+		str9 = param17
+		str10 = nil
+	end
+
+	local function func23(text3)
+		return (text3:match("^(.+)%-") or text3):gsub("_", " ")
+	end
+
+	local function func24()
+		task.spawn(function()
+			local character = localPlayer.Character
+			local animator = character:FindFirstChildWhichIsA("Humanoid"):FindFirstChildWhichIsA("Animator")
+			local animation = Instance.new("Animation")
+			animation.AnimationId = "rbxassetid://10851812420"
+			local obj1 = animator:LoadAnimation(animation)
+			obj1.Priority = Enum.AnimationPriority.Action
+			obj1:Play()
+			local sound = Instance.new("Sound")
+			sound.SoundId = "rbxassetid://11568102939"
+			sound.Volume = 2
+			sound.Parent = character:FindFirstChild("HumanoidRootPart")
+			sound:Play()
+
+			sound.Ended:Connect(function()
+				sound:Destroy()
+			end)
+
+			task.wait(3)
+			local parent2 = instance.Parent == character and instance or nil
+
+			if parent2 and parent2:IsA("Tool") then
+				parent2:Destroy()
+			end
+
+			if str10 then
+				commF:InvokeServer("SwitchFruit", str9, str10)
+			else
+				commF:InvokeServer("SwitchFruit", str9)
+			end
+		end)
+	end
+
+	local function func25()
+		if DialogueController.Active then
+			return
+		end
+		local obj2 = DialogueController.new()
+		obj2:setTitle("Blox Fruit")
+
+		obj2:addPage("Main", function(obj3)
+			obj3:addText("What do you wish to do with this Blox Fruit?<AnimateYield=3>")
+
+			obj3:addOptionType("Chat", function(obj4)
+				obj4:setText("Eat")
+
+				obj4:jumpToPage(function(obj5)
+					local str11 = ""
+
+					pcall(function()
+						str11 = localPlayer.Data.DevilFruit.Value
+					end)
+
+					if str11 == "" then
+						func24()
+						obj5:addText("[Eating Blox Fruit.]")
+						obj5:advanceAfterDelay(1.5)
+						return
+					end
+
+					local str12 = "><Color=/> with <Color=Yellow><" .. str8 .. "><Color=/>. Are you sure?"
+					obj5:addText("This will replace your <Color=Yellow><" .. func23(str11) .. str12)
+
+					obj5:addOptionType("Chat", function(obj6)
+						obj6:setText("Confirm")
+
+						obj6:jumpToPage(function(obj7)
+							func24()
+							obj7:addText("[Eating Blox Fruit.]")
+							obj7:advanceAfterDelay(1.5)
+						end)
+					end)
+
+					obj5:addOptionType("Chat", function(obj8)
+						obj8:setText("Cancel")
+
+						obj8:jumpToPage(function(obj9)
+							obj9:addText("...")
+							obj9:advanceAfterDelay(0.3)
+						end)
+					end)
+				end)
+			end)
+
+			obj3:addOptionType("Chat", function(obj10)
+				obj10:setText("Drop")
+
+				obj10:jumpToPage(function(obj11)
+					task.spawn(function()
+						task.wait()
+						local character = localPlayer.Character
+						local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+						local parent3 = instance.Parent == character and instance or nil
+						if not parent3 or not parent3:IsA("Tool") then
+							return
+						end
+						local handle = parent3:FindFirstChild("Handle")
+						local cFrame = handle and handle.CFrame or character:FindFirstChild("HumanoidRootPart").CFrame
+						humanoid:UnequipTools()
+						task.wait(0.1)
+						parent3.CanBeDropped = true
+						parent3.Parent = workspace
+
+						if handle then
+							handle.CFrame = cFrame * CFrame.new(0, 0, -1.5)
+							handle.CanCollide = true
+						end
+
+						local value13 = parent3
+						local flag10 = false
+						local connection3 = nil
+
+						connection3 = game:GetService("RunService").Heartbeat:Connect(function()
+							if flag10 then
+								return
+							end
+							local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+							if not humanoidRootPart or not handle or not handle.Parent then
+								connection3:Disconnect()
+								return
+							end
+
+							if (humanoidRootPart.Position - handle.Position).Magnitude < 3.5 then
+								flag10 = true
+								connection3:Disconnect()
+								task.wait(0.1)
+
+								if handle then
+									handle.CanCollide = false
+								end
+
+								value13.CanBeDropped = false
+								value13.Parent = localPlayer.Backpack
+								task.wait()
+								humanoid:EquipTool(value13)
+							end
+						end)
+					end)
+
+					obj11:addText("[Blox Fruit dropped.]")
+					obj11:advanceAfterDelay(1.5)
+				end)
+			end)
+
+			obj3:addOptionType("Chat", function(obj12)
+				obj12:setText("Store")
+
+				obj12:jumpToPage(function(obj13)
+					obj13:addText("idk, update later. discord.gg/mozil")
+					obj13:advanceAfterDelay(1.5)
+				end)
+			end)
+		end)
+
+		obj2:build()
+		DialogueController.start(obj2)
+	end
+
+	instance.Activated:Connect(function()
+		local ok3, result3 = pcall(func25)
+
+		if not ok3 then
+			warn("[X10Lucky] fruit dialogue failed:", result3)
+		end
+	end)
+end
+
+local function func26(param18)
+	local entry2 = tbl17[param18.StorageName]
+	local fruit = entry2 and entry2:FindFirstChild("Fruit")
+	local itemId = param18.ItemId
+	if not fruit or not itemId then
+		return
+	end
+
+	local ok3, name = pcall(function()
+		return ItemConfig.tryGet(itemId).Index.DebugLabel
+	end)
+
+	if not ok3 or type(name) ~= "string" or name == "" then
+		name = param18.StorageName .. " [PhysicalMoveset-" .. tostring(itemId) .. "]"
+	end
+
+	local replicatedSpinnerInstances = playerGui:FindFirstChild("__ReplicatedSpinnerInstances")
+
+	if not replicatedSpinnerInstances then
+		replicatedSpinnerInstances = Instance.new("ScreenGui")
+		replicatedSpinnerInstances.Name = "__ReplicatedSpinnerInstances"
+		replicatedSpinnerInstances.ResetOnSpawn = false
+		replicatedSpinnerInstances.Parent = playerGui
+	end
+
+	local obj14 = replicatedSpinnerInstances:FindFirstChild(name)
+
+	if obj14 then
+		obj14:Destroy()
+	end
+
+	local clone = fruit:Clone()
+
+	for _, descendant in ipairs(clone:GetDescendants()) do
+		if descendant:IsA("LuaSourceContainer") then
+			descendant:Destroy()
+		end
+	end
+
+	clone.Name = name
+	local rootPart = clone:FindFirstChild("RootPart")
+
+	if rootPart and not rootPart:IsA("BasePart") then
+		rootPart = nil
+	end
+
+	clone.PrimaryPart = rootPart or clone.PrimaryPart or clone:FindFirstChildWhichIsA("BasePart", true)
+	if not clone.PrimaryPart then
+		clone:Destroy()
+		return
+	end
+	clone:SetAttribute("ItemId", itemId)
+	clone:SetAttribute("__Size", clone:GetExtentsSize())
+	clone.Parent = replicatedSpinnerInstances
+
+	task.spawn(function()
+		local Spinner = require(ReplicatedStorage.Controllers.UI.Spinner)
+		local now = tick()
+
+		while tick() - now < 5 and not Spinner:IsOpen() do
+			task.wait(0.1)
+		end
+
+		while tick() - now < 600 and Spinner:IsOpen() do
+			task.wait(0.5)
+		end
+
+		if clone.Parent then
+			clone:Destroy()
+		end
+	end)
+end
+
+local function func27(flag11, callback1)
+	local list1 = flag11 and tbl15 or tbl14
+	local entry3 = list1[math.random(1, #list1)]
+
+	task.spawn(function()
+		if flag11 and tbl16[entry3.StorageName] then
+			local storageName = entry3.StorageName
+			local entry4 = tbl17[storageName]
+
+			if entry4 then
+				local clone = entry4:Clone()
+				clone.Name = entry3.DisplayName .. " Fruit"
+				clone:SetAttribute("X10Fake", true)
+				func22(clone, storageName, entry3.DisplayName)
+				clone.Parent = localPlayer.Backpack
+
+				clone.Equipped:Connect(function()
+					local fruit = clone:FindFirstChild("Fruit")
+					if not fruit then
+						return
+					end
+					local animationController = fruit:FindFirstChildWhichIsA("AnimationController")
+					if not animationController then
+						return
+					end
+					local animator = animationController:FindFirstChildWhichIsA("Animator")
+					local animation = fruit:FindFirstChildWhichIsA("Animation", true)
+
+					if animator and animation then
+						local obj15 = animator:LoadAnimation(animation)
+						obj15.Looped = true
+						obj15:Play()
+					end
+				end)
+			end
+		end
+
+		local ok3, result3 = pcall(func26, entry3)
+
+		if not ok3 then
+			warn("[X10Lucky] injectPreviewModel failed:", result3)
+		end
+
+		local ok4, result4 = pcall(function()
+			require(ReplicatedStorage.Controllers.UI.Spinner):Open({ entry3 }, tbl12, "ZiolesGacha")
+		end)
+
+		if not ok4 then
+			warn("[X10Lucky] Spinner:Open failed:", result4)
+		end
+
+		if callback1 then
+			callback1()
+		end
+	end)
+end
+
+local function func28(param19)
+	return game.Players.LocalPlayer.Data.Beli.Value >= param19
+end
+
+local n2 = 0
+local flag12 = false
+local text = nil
+local tbl18 = {}
+
+local tbl19 = {
+	btn = Color3.fromRGB(50, 185, 65),
+	stroke = Color3.fromRGB(27, 112, 36),
+	trans = Color3.fromRGB(76, 214, 90),
+}
+
+local tbl20 = {}
+
+local function func29()
+	return tbl8.bypassCash or tbl8.bypassTime
+end
+
+local function func30(obj16, param20, param21)
+	if tbl20[obj16] then
+		return
+	end
+	local tbl21 = { prop = param20, orig = obj16[param20], want = param21 }
+
+	tbl21.conn = obj16:GetPropertyChangedSignal(param20):Connect(function()
+		if obj16[param20] ~= tbl21.want then
+			tbl21.orig = obj16[param20]
+			obj16[param20] = tbl21.want
+		end
+	end)
+
+	tbl20[obj16] = tbl21
+	obj16[param20] = param21
+end
+
+local function func31()
+	for k, value14 in pairs(tbl20) do
+		value14.conn:Disconnect()
+
+		if k.Parent then
+			k[value14.prop] = value14.orig
+		end
+	end
+
+	tbl20 = {}
+end
+
+local function func32(instance2)
+	func30(instance2, "BackgroundColor3", tbl19.btn)
+	local uiStroke = instance2:FindFirstChildOfClass("UIStroke")
+
+	if uiStroke then
+		func30(uiStroke, "Color", tbl19.stroke)
+	end
+
+	local trans = instance2:FindFirstChild("Trans")
+
+	if trans and trans:IsA("Frame") then
+		func30(trans, "BackgroundColor3", tbl19.trans)
+	end
+end
+
+local function func33(obj17)
+	if tbl18[obj17] then
+		return
+	end
+	local tbl22 = { orig = obj17.Text }
+
+	tbl22.conn = obj17:GetPropertyChangedSignal("Text"):Connect(function()
+		if text then
+			if obj17.Text ~= text then
+				tbl22.orig = obj17.Text
+				obj17.Text = text
+			end
+		else
+			tbl22.orig = obj17.Text
+		end
+	end)
+
+	tbl18[obj17] = tbl22
+
+	if text then
+		obj17.Text = text
+	end
+end
+
+local function func34(text2)
+	text = text2
+
+	for k, value15 in pairs(tbl18) do
+		if k.Parent then
+			k.Text = text2 or value15.orig
+		end
+	end
+end
+
+local function func35()
+	text = nil
+
+	for k, value16 in pairs(tbl18) do
+		value16.conn:Disconnect()
+
+		if k.Parent then
+			k.Text = value16.orig
+		end
+	end
+
+	tbl18 = {}
+	func31()
+end
+
+local function func36(parent)
+	local fakeOverlay = parent:FindFirstChild("FakeOverlay")
+
+	if fakeOverlay then
+		fakeOverlay:Destroy()
+	end
+
+	local flag13 = false
+	local textButton = Instance.new("TextButton")
+	textButton.Name = "FakeOverlay"
+	textButton.Size = UDim2.fromScale(1, 1)
+	textButton.BackgroundTransparency = 1
+	textButton.Text = ""
+	textButton.ZIndex = 100
+	textButton.Parent = parent
+
+	textButton.Activated:Connect(function()
+		if flag13 then
+			return
+		end
+
+		if not tbl8.bypassCash and not func28(n2) then
+			func34(("Need $%s more"):format(TextUtil.commaValue(n2 - game.Players.LocalPlayer.Data.Beli.Value)))
+
+			task.delay(2, function()
+				if textButton.Parent then
+					func34(tbl8.bypassCash and "FREE" or nil)
+				end
+			end)
+
+			return
+		end
+
+		flag13 = true
+
+		task.delay(0.5, function()
+			flag12 = false
+			textButton:Destroy()
+
+			pcall(function()
+				GachaWindow:Close()
+			end)
+
+			task.delay(0.5, function()
+				local ok3, result3 = pcall(function()
+					return GachaWindow:IsOpen()
+				end)
+
+				local ziolesGachaWindow = playerGui:FindFirstChild("ZiolesGacha_Window")
+
+				if ziolesGachaWindow and ziolesGachaWindow.Enabled and (not ok3 or result3) then
+					ziolesGachaWindow.Enabled = false
+				end
+			end)
+
+			func27(tbl8.boostLuck)
+		end)
+	end)
+
+
+	for _, descendant in ipairs(parent:GetDescendants()) do
+		if descendant:IsA("TextLabel") then
+			func33(descendant)
+		end
+	end
+
+	if func29() then
+		func32(parent)
+	end
+end
+
+local function func37(instance3)
+	if instance3.Name == "PurchaseButton" and instance3:IsA("GuiButton") then
+		if instance3:FindFirstAncestor("ZiolesGacha_Window") and not instance3:FindFirstChild("FakeOverlay") then
+			func36(instance3)
+		end
+	elseif instance3:IsA("TextLabel") and instance3:FindFirstAncestor("PurchaseButton") and instance3:FindFirstAncestor("ZiolesGacha_Window") then
+		func33(instance3)
+	elseif func29() and instance3.Parent and instance3.Parent.Name == "PurchaseButton" and instance3:FindFirstAncestor("ZiolesGacha_Window") then
+		if instance3:IsA("UIStroke") then
+			func30(instance3, "Color", tbl19.stroke)
+		elseif instance3.Name == "Trans" and instance3:IsA("Frame") then
+			func30(instance3, "BackgroundColor3", tbl19.trans)
+		end
+	end
+end
+
+playerGui.DescendantAdded:Connect(function(descendant)
+	if flag12 then
+		func37(descendant)
+	end
+end)
+
+GachaWindow.Open = function(self, flag14, param22, ...)
+	if flag14 == "ZiolesGacha" then
+		func35()
+		flag12 = false
+
+		if tbl8.boostLuck or tbl8.bypassCash or tbl8.bypassTime then
+			n2 = type(param22) == "table" and tonumber(param22.Value) or 0
+			flag12 = true
+			text = tbl8.bypassCash and "FREE" or nil
+			local ziolesGachaWindow = playerGui:FindFirstChild("ZiolesGacha_Window")
+
+			if ziolesGachaWindow then
+				for _, descendant in ipairs(ziolesGachaWindow:GetDescendants()) do
+					if descendant.Name == "FakeOverlay" then
+						descendant:Destroy()
+					end
+				end
+
+				for _, descendant in ipairs(ziolesGachaWindow:GetDescendants()) do
+					func37(descendant)
+				end
+			end
+		end
+	end
+
+	if flag14 == "ZiolesGacha" and flag12 then
+		for _, item3 in ipairs({ 0, 0.05, 0.15, 0.3, 0.6 }) do
+			task.delay(item3, function()
+				if not flag12 then
+					return
+				end
+				local ziolesGachaWindow = playerGui:FindFirstChild("ZiolesGacha_Window")
+
+				if ziolesGachaWindow then
+					for _, descendant in ipairs(ziolesGachaWindow:GetDescendants()) do
+						func37(descendant)
+					end
+				end
+			end)
+		end
+	end
+
+	local packed2 = table.pack(...)
+	local func38 = open
+	packed2.n = 4 + packed2.n - 1
+	table.move(packed2, 1, packed2.n, 4, packed2)
+	packed2[1] = self
+	packed2[2] = flag14
+	packed2[3] = param22
+	return func38(table.unpack(packed2, 1, packed2.n))
+end
+
+local x10LuckyUI = playerGui:FindFirstChild("X10LuckyUI")
+
+if x10LuckyUI then
+	x10LuckyUI:Destroy()
+end
+
+local x10LoadingUI = playerGui:FindFirstChild("X10LoadingUI")
+
+if x10LoadingUI then
+	x10LoadingUI:Destroy()
+end
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "X10LuckyUI"
+screenGui.ResetOnSpawn = false
+screenGui.DisplayOrder = 999
+screenGui.IgnoreGuiInset = true
+screenGui.Enabled = false
+screenGui.Parent = playerGui
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 230, 0, 190)
+frame.Position = UDim2.new(0, 10, 0.5, -95)
+frame.BackgroundColor3 = Color3.fromRGB(18, 18, 28)
+frame.BorderSizePixel = 0
+frame.Parent = screenGui
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
+local uiStroke = Instance.new("UIStroke", frame)
+uiStroke.Color = Color3.fromRGB(70, 70, 110)
+uiStroke.Thickness = 1.5
+local frame2 = Instance.new("Frame")
+frame2.Size = UDim2.new(1, 0, 0, 38)
+frame2.BackgroundColor3 = Color3.fromRGB(28, 28, 48)
+frame2.BorderSizePixel = 0
+frame2.Parent = frame
+Instance.new("UICorner", frame2).CornerRadius = UDim.new(0, 12)
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.fromScale(1, 1)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "✨  X100 Lucky Script"
+textLabel.TextColor3 = Color3.fromRGB(255, 215, 80)
+textLabel.Font = Enum.Font.GothamBold
+textLabel.TextSize = 16
+textLabel.Parent = frame2
+local value17 = nil
+local position = nil
+local position2 = nil
+
+frame2.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		value17 = true
+		position = input.Position
+		position2 = frame.Position
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if value17 and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+		local n3 = input.Position - position
+		frame.Position = UDim2.new(position2.X.Scale, position2.X.Offset + n3.X, position2.Y.Scale, position2.Y.Offset + n3.Y)
+	end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		value17 = false
+	end
+end)
+
+local tbl23 = { key = "boostLuck", label = "🍀 Boost Luck", color = Color3.fromRGB(80, 200, 80) }
+local tbl24 = { key = "bypassTime", label = "⏰ Bypass Waiting Time", color = Color3.fromRGB(80, 160, 255) }
+local tbl25 = { key = "bypassCash", label = "💰 Bypass Cash", color = Color3.fromRGB(255, 200, 50) }
+local tbl26 = { tbl23, tbl24, tbl25 }
+local frame3 = Instance.new("Frame")
+frame3.Size = UDim2.new(1, -20, 1, -48)
+frame3.Position = UDim2.new(0, 10, 0, 44)
+frame3.BackgroundTransparency = 1
+frame3.Parent = frame
+Instance.new("UIListLayout", frame3).Padding = UDim.new(0, 8)
+
+for _, item4 in ipairs(tbl26) do
+	local frame4 = Instance.new("Frame")
+	frame4.Size = UDim2.new(1, 0, 0, 38)
+	frame4.BackgroundColor3 = Color3.fromRGB(28, 28, 45)
+	frame4.BorderSizePixel = 0
+	frame4.Parent = frame3
+	Instance.new("UICorner", frame4).CornerRadius = UDim.new(0, 8)
+	local textLabel2 = Instance.new("TextLabel")
+	textLabel2.Size = UDim2.new(1, -60, 1, 0)
+	textLabel2.Position = UDim2.new(0, 12, 0, 0)
+	textLabel2.BackgroundTransparency = 1
+	textLabel2.Text = item4.label
+	textLabel2.TextColor3 = Color3.fromRGB(210, 210, 210)
+	textLabel2.Font = Enum.Font.Gotham
+	textLabel2.TextSize = 13
+	textLabel2.TextXAlignment = Enum.TextXAlignment.Left
+	textLabel2.Parent = frame4
+	local textButton = Instance.new("TextButton")
+	textButton.Size = UDim2.new(0, 46, 0, 26)
+	textButton.AnchorPoint = Vector2.new(1, 0.5)
+	textButton.Position = UDim2.new(1, -10, 0.5, 0)
+	textButton.BackgroundColor3 = Color3.fromRGB(55, 55, 75)
+	textButton.BorderSizePixel = 0
+	textButton.Text = ""
+	textButton.Parent = frame4
+	Instance.new("UICorner", textButton).CornerRadius = UDim.new(1, 0)
+	local frame5 = Instance.new("Frame")
+	frame5.Size = UDim2.new(0, 20, 0, 20)
+	frame5.AnchorPoint = Vector2.new(0, 0.5)
+	frame5.Position = UDim2.new(0, 3, 0.5, 0)
+	frame5.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
+	frame5.BorderSizePixel = 0
+	frame5.Parent = textButton
+	Instance.new("UICorner", frame5).CornerRadius = UDim.new(1, 0)
+
+	local function func39(flag15)
+		tbl8[item4.key] = flag15
+		TweenService:Create(textButton, TweenInfo.new(0.15), { BackgroundColor3 = flag15 and item4.color or Color3.fromRGB(55, 55, 75) }):Play()
+
+		TweenService:Create(frame5, TweenInfo.new(0.15), {
+			Position = flag15 and UDim2.new(1, -23, 0.5, 0) or UDim2.new(0, 3, 0.5, 0),
+			BackgroundColor3 = flag15 and Color3.new(1, 1, 1) or Color3.fromRGB(160, 160, 160),
+		}):Play()
+	end
+
+	textButton.Activated:Connect(function()
+		func39(not tbl8[item4.key])
+	end)
+end
+
+local screenGui2 = Instance.new("ScreenGui")
+screenGui2.Name = "X10LoadingUI"
+screenGui2.ResetOnSpawn = false
+screenGui2.DisplayOrder = 1000
+screenGui2.IgnoreGuiInset = true
+screenGui2.Parent = playerGui
+local frame4 = Instance.new("Frame")
+frame4.Size = UDim2.fromScale(1, 1)
+frame4.BackgroundColor3 = Color3.fromRGB(8, 8, 12)
+frame4.BackgroundTransparency = 0.25
+frame4.BorderSizePixel = 0
+frame4.Parent = screenGui2
+local frame5 = Instance.new("Frame")
+frame5.Size = UDim2.new(0, 300, 0, 88)
+frame5.AnchorPoint = Vector2.new(0.5, 0.5)
+frame5.Position = UDim2.new(0.5, 0, 0.5, 0)
+frame5.BackgroundColor3 = Color3.fromRGB(15, 17, 22)
+frame5.BorderSizePixel = 0
+frame5.Parent = frame4
+Instance.new("UICorner", frame5).CornerRadius = UDim.new(0, 12)
+local uiStroke2 = Instance.new("UIStroke", frame5)
+uiStroke2.Color = Color3.fromRGB(42, 45, 54)
+uiStroke2.Thickness = 1
+local textLabel2 = Instance.new("TextLabel")
+textLabel2.Size = UDim2.new(1, -32, 0, 18)
+textLabel2.Position = UDim2.new(0, 16, 0, 14)
+textLabel2.BackgroundTransparency = 1
+textLabel2.Text = "Loading fruit models"
+textLabel2.TextColor3 = Color3.fromRGB(242, 244, 247)
+textLabel2.Font = Enum.Font.Gotham
+textLabel2.TextSize = 13
+textLabel2.TextXAlignment = Enum.TextXAlignment.Left
+textLabel2.Parent = frame5
+local frame6 = Instance.new("Frame")
+frame6.Size = UDim2.new(1, -32, 0, 4)
+frame6.Position = UDim2.new(0, 16, 0, 42)
+frame6.BackgroundColor3 = Color3.fromRGB(42, 45, 54)
+frame6.BorderSizePixel = 0
+frame6.Parent = frame5
+Instance.new("UICorner", frame6).CornerRadius = UDim.new(1, 0)
+local frame7 = Instance.new("Frame")
+frame7.Size = UDim2.fromScale(0, 1)
+frame7.BackgroundColor3 = Color3.fromRGB(139, 92, 246)
+frame7.BorderSizePixel = 0
+frame7.Parent = frame6
+Instance.new("UICorner", frame7).CornerRadius = UDim.new(1, 0)
+local textLabel3 = Instance.new("TextLabel")
+textLabel3.Size = UDim2.new(1, -32, 0, 16)
+textLabel3.Position = UDim2.new(0, 16, 0, 56)
+textLabel3.BackgroundTransparency = 1
+textLabel3.Text = "Please wait..."
+textLabel3.TextColor3 = Color3.fromRGB(139, 147, 161)
+textLabel3.Font = Enum.Font.Gotham
+textLabel3.TextSize = 11
+textLabel3.TextXAlignment = Enum.TextXAlignment.Left
+textLabel3.Parent = frame5
+
+for _, item5 in ipairs({ localPlayer.Backpack, localPlayer.Character }) do
+	for _, child in ipairs(item5:GetChildren()) do
+		if child:IsA("Tool") and child:GetAttribute("X10Fake") then
+			child:Destroy()
+		end
+	end
+end
+
+task.spawn(function()
+	local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+	local result6 = func17()
+	local tbl27 = {}
+
+	for _, value18 in pairs(result6) do
+		local typeValue = value18.Type == "Blox Fruit"
+
+		if typeValue then
+			typeValue = (value18.Rarity or 0) == 4
+		end
+
+		if typeValue then
+			table.insert(tbl27, value18)
+		end
+	end
+
+	local n3 = #tbl27
+	textLabel2.Text = "Syncing inventory data..."
+	textLabel3.Text = string.format("Found %d items to process", n3)
+
+	for i, item6 in ipairs(tbl27) do
+		local name = item6.Name or item6.DisplayName .. "-" .. item6.DisplayName
+		local displayName = item6.DisplayName or name
+		textLabel2.Text = string.format("Loading fruit models  %d/%d", i, n3)
+		textLabel3.Text = "Models only, your items stay safe."
+		TweenService:Create(frame7, TweenInfo.new(0.2), { Size = UDim2.fromScale((i - 1) / n3, 1) }):Play()
+
+		if replicatedFruits:FindFirstChild(name) then
+			tbl16[name] = true
+		else
+			pcall(function()
+				commF:InvokeServer("LoadFruit", name)
+			end)
+
+			local value19 = nil
+			local now = tick()
+
+			while tick() - now < 3 do
+				local value20 = localPlayer.Backpack:FindFirstChild(displayName .. " Fruit") or localPlayer.Backpack:FindFirstChild(item6.Name .. " Fruit")
+
+				if value20 then
+					value19 = value20
+					break
+				else
+					task.wait(0.1)
+				end
+			end
+
+			if value19 then
+				local clone = value19:Clone()
+				clone.Name = name
+				clone.Parent = replicatedFruits
+				tbl16[name] = true
+
+				pcall(function()
+					local humanoid = character:FindFirstChildWhichIsA("Humanoid")
+
+					if humanoid then
+						humanoid:EquipTool(value19)
+						task.wait(1)
+						local obj18 = workspace.Characters:FindFirstChild(localPlayer.Name)
+
+						if obj18 then
+							obj18 = obj18:FindFirstChild(displayName .. " Fruit") or obj18:FindFirstChild(item6.Name .. " Fruit")
+						end
+
+						if obj18 then
+							local clone2 = obj18:Clone()
+							clone2.Name = name
+							local fruit = clone2:FindFirstChild("Fruit")
+							local rootPart = fruit and fruit:FindFirstChild("RootPart")
+
+							if rootPart then
+								for _, descendant in ipairs(fruit:GetDescendants()) do
+									if descendant:IsA("BasePart") and descendant ~= rootPart then
+										if not descendant:FindFirstChildWhichIsA("WeldConstraint") then
+											local weldConstraint = Instance.new("WeldConstraint")
+											weldConstraint.Part0 = rootPart
+											weldConstraint.Part1 = descendant
+											weldConstraint.Parent = descendant
+										end
+									end
+								end
+							end
+
+							tbl17[name] = clone2
+							commF:InvokeServer("StoreFruit", name, obj18)
+						end
+					end
+				end)
+
+				task.wait(0.8)
+			end
+		end
+	end
+
+	for i = #tbl15, 1, -1 do
+		tbl15[i] = nil
+	end
+
+	for _, item7 in ipairs(tbl13) do
+		if tbl16[item7.StorageName] then
+			table.insert(tbl15, item7)
+		end
+	end
+
+	warn("[X10Lucky] MYTH pool:", #tbl15, "entries")
+	flag9 = true
+	screenGui2:Destroy()
+	screenGui.Enabled = true
+	warn("[X10Lucky] Preload done:", n3, "mythicals")
+end)
